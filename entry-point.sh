@@ -11,10 +11,8 @@ webhook_url=$SLACK_NOTIFICATION_WEBHOOK_URL
 
 while :
 do
-  curl -s -o /dev/null -w "%{http_code}" $status_url
-
-  if [ $? -eq "200" ]
-  then
+  status=`curl -s -o /dev/null -w "%{http_code}" $status_url`
+  if [ $status -eq 200 ]; then
     echo "Application works."
     sleep $status_timeout
   else

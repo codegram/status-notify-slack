@@ -8,10 +8,11 @@ username=$SLACK_USERNAME
 text=$SLACK_NOTIFICATION_TEXT
 icon=$SLACK_NOTIFICATION_ICON
 webhook_url=$SLACK_NOTIFICATION_WEBHOOK_URL
+curl_max_timeout=$CURL_MAX_TIMEOUT
 
 while :
 do
-  status=`curl -s -o /dev/null -w "%{http_code}" $status_url`
+  status=`curl -m $curl_max_timeout -s -o /dev/null -w "%{http_code}" $status_url`
   if [ $status -eq 200 ]; then
     echo "Application works."
     sleep $status_timeout

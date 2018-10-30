@@ -10,6 +10,7 @@ ENV SLACK_NOTIFICATION_TEXT "This is an example text"
 ENV SLACK_NOTIFICATION_ICON ":ghost:"
 ENV SLACK_NOTIFICATION_WEBHOOK_URL "http://example.org"
 ENV CURL_MAX_TIMEOUT 30
+ENV MAX_FAILS_ALLOWED 3
 
 RUN apk add --update curl && \
     rm -rf /var/cache/apk/*

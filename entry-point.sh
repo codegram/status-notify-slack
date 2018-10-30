@@ -26,7 +26,7 @@ do
 	fail_count=0
     sleep $status_timeout
   else
-    ((fail_count++))
+    fail_count=$((fail_count+1))
 	echo "fail count: $fail_count"
 	if [ $fail_count -ge $max_fails_allowed ]; then
 		echo "Application is not working."

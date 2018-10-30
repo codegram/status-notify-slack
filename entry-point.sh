@@ -5,6 +5,7 @@ status_timeout=$STATUS_TIMEOUT
 notify_timeout=$NOTIFY_TIMEOUT
 channel=$SLACK_CHANNEL
 username=$SLACK_USERNAME
+username_ok=$SLACK_USERNAME_OK
 text=$SLACK_NOTIFICATION_TEXT
 text_ok=$SLACK_NOTIFICATION_TEXT_OK
 icon=$SLACK_NOTIFICATION_ICON
@@ -20,7 +21,7 @@ do
   if [ $status -eq 200 ]; then
     echo "Application works."
 	if [ $fail_count -gt $max_fails_allowed ]; then
-		curl -X POST --data-urlencode "payload={\"channel\": \"$channel\", \"username\": \"$username\", \"text\": \"$text_ok\", \"icon_emoji\": \"$icon_ok\"}" $webhook_url
+		curl -X POST --data-urlencode "payload={\"channel\": \"$channel\", \"username\": \"$username_ok\", \"text\": \"$text_ok\", \"icon_emoji\": \"$icon_ok\"}" $webhook_url
 	fi
 	fail_count=0
     sleep $status_timeout

@@ -11,7 +11,7 @@ icon=$SLACK_NOTIFICATION_ICON
 icon_ok=$SLACK_NOTIFICATION_ICON_OK
 webhook_url=$SLACK_NOTIFICATION_WEBHOOK_URL
 curl_max_timeout=$CURL_MAX_TIMEOUT
-max_fails_allowed=$MAX_FAILES_ALLOWED
+max_fails_allowed=$MAX_FAILS_ALLOWED
 fail_count=0;
 
 while :
